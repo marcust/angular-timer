@@ -72,7 +72,7 @@ describe('Angular Timer E2E Tests', function () {
   });
 
   it('Autostart False Timer - Init from 0', function () {
-    expect(element('#auto-start-false-timer timer span').html()).toBe('0');
+    expect(element('#auto-start-false-timer timer span').html()).toBe('00');
     element('#auto-start-false-timer button:nth-child(3)').click();
     sleep(2);
     expect(element('#auto-start-false-timer timer span').html()).toBeGreaterThan(0);

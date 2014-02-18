@@ -93,12 +93,21 @@ angular.module('timer', [])
           resetTimeout();
           $scope.isRunning = false;
         });
+        
+        function prefix( value ) {
+          return value < 10 ? "0" + value : "" + value;
+        }
 
         function calculateTimeUnits() {
-          $scope.seconds = Math.floor(($scope.millis / 1000) % 60);
-          $scope.minutes = Math.floor((($scope.millis / (60000)) % 60));
-          $scope.hours = Math.floor((($scope.millis / (3600000)) % 24));
-          $scope.days = Math.floor((($scope.millis / (3600000)) / 24));
+          var seconds = Math.floor(($scope.millis / 1000) % 60);	
+          var minutes = Math.floor((($scope.millis / (60000)) % 60));
+          var hours = Math.floor((($scope.millis / (3600000)) % 24));	
+          var days = Math.floor((($scope.millis / (3600000)) / 24));
+          
+          $scope.seconds = prefix( seconds );
+          $scope.minutes = prefix( minutes );
+          $scope.hours = prefix( hours );
+          $scope.days = prefix( days );
         }
 
         //determine initial values of time units and add AddSeconds functionality
